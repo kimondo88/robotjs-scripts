@@ -1,0 +1,15 @@
+{
+  "name": "robotjs",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Adam Kim Tarczewski",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "robotjs": "^0.6.0"
+  },
+  "scripts": {
+    "start" : "node index.js",
+    "mouse" : "node mouse.js"
+  }
+}
