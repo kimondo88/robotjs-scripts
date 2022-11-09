@@ -16,11 +16,12 @@ const actions = {
     friendsClaim: [-819, 801]
 }
 
+const back = moveAndClick(actions.exit[0], actions.exit[1], 30, 2550);
 
 setTimeout(startOPM, 1000);
-//setTimeout(startInstantPatrol, 3000);
-setTimeout(startMailClaim, 3000);
-setTimeout(startFriendClaim, 8000);
+setTimeout(startInstantPatrol, 3000);
+setTimeout(startMailClaim, 5000);
+setTimeout(startFriendClaim, 8500);
 //Opening the openboard
 //Can learn more about these
 //properties from the robotjs site
@@ -42,22 +43,22 @@ function startInstantPatrol(){
     moveAndClick(actions.ipclaimbutton[0], actions.ipclaimbutton[1], 30, 1250);
 };
 
-//claiming mails
+//claiming mails then back to main menu
 
 function startMailClaim(){
     moveAndClickInstant(actions.mailicon[0], actions.mailicon[1]);
     moveAndClick(actions.mailclaim[0], actions.mailclaim[1], 10, 750)
     click(10, 250);
-    moveAndClick(actions.exit[0], actions.exit[1], 30, 2550);
+    back;
 };
 
-//friends claim
+//friends claim then back to main menu
 
 function startFriendClaim(){
     moveAndClickInstant(actions.friendsIcon[0], actions.friendsIcon[1]);
     moveAndClick(actions.friendsClaim[0], actions.friendsClaim[1], 10, 250);
     click(10, 250);
-    moveAndClick(actions.exit[0], actions.exit[1], 30, 2550);
+    back;
 };
 
 function randomTime(max, time){
@@ -76,6 +77,12 @@ function moveAndClick(x, y, random, baseTime){
         robot.mouseClick();
     }, randomTime(random, baseTime))
 };
+
+/** move to coordinates x and y then click
+ * 
+ * @param {int} x width coordinate
+ * @param {int} y height coordinate
+ */
 
 function moveAndClickInstant(x, y){
         robot.moveMouse(x, y);
