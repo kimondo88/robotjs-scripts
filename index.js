@@ -11,12 +11,15 @@ const actions = {
     ipclaimbutton: [-1158, 774],
     mailicon: [-551, 119],
     mailclaim: [-1500, 789 ],
-    mailexit: [-1801 , 110],
+    exit: [-1801 , 110],
+    friendsIcon: [-638, 118],
+    friendsClaim: [-819, 801]
 }
 
 
 setTimeout(startOPM, 1000);
-setTimeout(startInstantPatrol, 3000);
+//setTimeout(startInstantPatrol, 3000);
+setTimeout(startMailClaim, 3000);
 
 //Opening the openboard
 //Can learn more about these
@@ -31,19 +34,50 @@ function startOPM(){
     }, randomTime(50, 800))
 };
 
+//claiming instant patrol
+
 function startInstantPatrol(){
-    robot.moveMouse(actions.instantpatrol[0], actions.instantpatrol[1]);
-    robot.mouseClick();
-    setTimeout(()=>{
-        robot.moveMouse(actions.ipclaim[0], actions.ipclaim[1]);
-        robot.mouseClick();
-    }, randomTime(10, 750))
-    setTimeout(()=>{
-        robot.moveMouse(actions.ipclaimbutton[0], actions.ipclaimbutton[1]);
-        robot.mouseClick();
-    }, randomTime(30, 1250))
+    moveAndClickInstant(actions.instantpatrol[0], actions.instantpatrol[1]);
+    moveAndClick(actions.ipclaim[0], actions.ipclaim[1], 10, 750);
+    moveAndClick(actions.ipclaimbutton[0], actions.ipclaimbutton[1], 30, 1250);
+};
+
+//claiming mails
+
+function startMailClaim(){
+    moveAndClickInstant(actions.mailicon[0], actions.mailicon[1]);
+    moveAndClick(actions.mailclaim[0], actions.mailclaim[1], 10, 750)
+    click(10, 250);
+    moveAndClick(actions.exit[0], actions.exit[1], 30, 2550);
+};
+
+//friends claim
+
+function startFriendClaim(){
+    moveAndClickInstant(actions.friendsIcon[0], actions.friendsIcon[1]);
+    moveAndClick(actions.friendsClaim[0], actions.friendsClaim[1], 10, 250);
+    click(10, 250);
+    moveAndClick(actions.exit[0], actions.exit[1], 30, 2550);
 };
 
 function randomTime(max, time){
     return time + Math.floor(Math.random() * max);
-}
+};
+
+function click(randomTime = 10, baseTime = 250){
+    return setTimeout(()=>{
+        robot.mouseClick();
+    }, randomTime(randomTime, baseTime))
+};
+
+function moveAndClick(x, y, randomTime, baseTime){
+    return setTimeout(()=>{
+        robot.moveMouse(x, y);
+        robot.mouseClick();
+    }, randomTime(randomTime, baseTime))
+};
+
+function moveAndClickInstant(x, y){
+        robot.moveMouse(x, y);
+        robot.mouseClick();
+};
