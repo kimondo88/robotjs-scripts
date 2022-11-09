@@ -20,7 +20,7 @@ const actions = {
 setTimeout(startOPM, 1000);
 //setTimeout(startInstantPatrol, 3000);
 setTimeout(startMailClaim, 3000);
-
+setTimeout(startFriendClaim, 8000);
 //Opening the openboard
 //Can learn more about these
 //properties from the robotjs site
@@ -64,17 +64,17 @@ function randomTime(max, time){
     return time + Math.floor(Math.random() * max);
 };
 
-function click(randomTime = 10, baseTime = 250){
-    return setTimeout(()=>{
-        robot.mouseClick();
-    }, randomTime(randomTime, baseTime))
+function click(random = 10, baseTime = 250){
+    return setTimeout(() => { 
+        robot.mouseClick(); 
+    }, randomTime(random, baseTime))
 };
 
-function moveAndClick(x, y, randomTime, baseTime){
+function moveAndClick(x, y, random, baseTime){
     return setTimeout(()=>{
         robot.moveMouse(x, y);
         robot.mouseClick();
-    }, randomTime(randomTime, baseTime))
+    }, randomTime(random, baseTime))
 };
 
 function moveAndClickInstant(x, y){
