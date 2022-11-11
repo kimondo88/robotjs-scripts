@@ -16,12 +16,13 @@ const actions = {
     friendsClaim: [-819, 801]
 }
 
-const back = moveAndClick(actions.exit[0], actions.exit[1], 30, 2550);
+const base = 1500;
+const back = moveAndClick(actions.exit[0], actions.exit[1], 30, base);
 
-setTimeout(startOPM, 1000);
-setTimeout(startInstantPatrol, 3000);
-setTimeout(startMailClaim, 5000);
-setTimeout(startFriendClaim, 8500);
+setTimeout(startOPM, base-500);
+setTimeout(startInstantPatrol, base*2);
+setTimeout(startMailClaim, base*3,5);
+setTimeout(startFriendClaim, base*8);
 //Opening the openboard
 //Can learn more about these
 //properties from the robotjs site
@@ -39,15 +40,15 @@ function startOPM(){
 
 function startInstantPatrol(){
     moveAndClickInstant(actions.instantpatrol[0], actions.instantpatrol[1]);
-    moveAndClick(actions.ipclaim[0], actions.ipclaim[1], 10, 750);
-    moveAndClick(actions.ipclaimbutton[0], actions.ipclaimbutton[1], 30, 1250);
+    moveAndClick(actions.ipclaim[0], actions.ipclaim[1], 10, base/2);
+    moveAndClick(actions.ipclaimbutton[0], actions.ipclaimbutton[1], 30, base);
 };
 
 //claiming mails then back to main menu
 
 function startMailClaim(){
     moveAndClickInstant(actions.mailicon[0], actions.mailicon[1]);
-    moveAndClick(actions.mailclaim[0], actions.mailclaim[1], 10, 750)
+    moveAndClick(actions.mailclaim[0], actions.mailclaim[1], 10, base/2)
     click(10, 250);
     back;
 };
@@ -56,8 +57,8 @@ function startMailClaim(){
 
 function startFriendClaim(){
     moveAndClickInstant(actions.friendsIcon[0], actions.friendsIcon[1]);
-    moveAndClick(actions.friendsClaim[0], actions.friendsClaim[1], 10, 250);
-    click(10, 250);
+    moveAndClick(actions.friendsClaim[0], actions.friendsClaim[1], 10, base/5);
+    click(10, base/3);
     back;
 };
 

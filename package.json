@@ -10,6 +10,7 @@
   },
   "scripts": {
     "start" : "node index.js",
-    "mouse" : "node mouse.js"
+    "mouse" : "node mouse.js",
+    "event" : "node routineEvent.js"
   }
 }
