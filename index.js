@@ -21,8 +21,8 @@ const back = moveAndClick(actions.exit[0], actions.exit[1], 30, base);
 
 setTimeout(startOPM, base-500);
 setTimeout(startInstantPatrol, base*2);
-setTimeout(startMailClaim, base*3,5);
-setTimeout(startFriendClaim, base*8);
+setTimeout(startMailClaim, base*5);
+setTimeout(startFriendClaim, base*9);
 //Opening the openboard
 //Can learn more about these
 //properties from the robotjs site
