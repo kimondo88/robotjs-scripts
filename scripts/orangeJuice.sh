@@ -1,8 +1,8 @@
 #! /bin/bash
 
-cd Desktop/Robotjs/
+cd Desktop/robotjs-scripts/
 
 eval bash
 
-node run ctrl
+npm run ctrl
 
