@@ -9,9 +9,6 @@ const uIOhook = napi.uIOhook;
 
 // Timeout to wait if system is slow
 
-let holded = false;
-let holdedShift = false;
-
 uIOhook.on('keydown', (e) => {
         executeNormal(e);
     if (e.keycode === UiohookKey.End) {
@@ -24,11 +21,15 @@ uIOhook.on('keydown', (e) => {
 function executeNormal(e){
     if(e.keycode === UiohookKey["1"] ) {
         toggleCtrl();
-        console.log("Ctrl pressed is: ", holded);
+        console.log("Ctrl pressed");
     }
     if(e.keycode === UiohookKey["2"]) {
         toggleShift();
-        console.log("Shift + Ctrl pressed is: ", holdedShift);
+        console.log("Shift + Ctrl pressed");
+    }
+    if(e.keycode === UiohookKey["3"]) {
+        toggleShiftUp();
+        console.log("Reset");
     }
 }
 
@@ -36,27 +37,12 @@ function executeNormal(e){
 //properties from the robotjs site
  
 function toggleCtrl(){
-    switch(holded){
-        case false:
-            robot.keyToggle("control", "down");
-        case true:
-            robot.keyToggle("control", "up");
-
-    }
-    
-    return holded = !holded;
+    robot.keyToggle("control", "down");
 }
 
 function toggleShift(){
-    switch(holdedShift){
-        case false:
-            robot.keyToggle("control", "down");
-            robot.keyToggle("shift", "down");
-        case true:
-            robot.keyToggle("control", "up");
-            robot.keyToggle("shift", "up");
-    }
-    return holdedShift = !holdedShift;
+    robot.keyToggle("control", "down");
+    robot.keyToggle("shift", "down");
 }
 
 function toggleShiftUp(){
