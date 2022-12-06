@@ -11,18 +11,9 @@ const uIOhook = napi.uIOhook;
 
 let holded = false;
 let holdedShift = false;
-let original = 1;
-let shift = 1;
 
 uIOhook.on('keydown', (e) => {
-    if(original === 1 && shift === 1) {
         executeNormal(e);
-    }else if(original === 2) {
-        original = 1;
-    }
-    else if(shift === 2){
-        shift = 1;
-    }
     if (e.keycode === UiohookKey.End) {
         toggleShiftUp();
         console.log("Exiting, see ya");
@@ -31,11 +22,11 @@ uIOhook.on('keydown', (e) => {
 })
 
 function executeNormal(e){
-    if(e.keycode === UiohookKey.Ctrl ) {
+    if(e.keycode === UiohookKey["1"] ) {
         toggleCtrl();
         console.log("Ctrl pressed is: ", holded);
     }
-    if(e.keycode === UiohookKey.Shift) {
+    if(e.keycode === UiohookKey["2"]) {
         toggleShift();
         console.log("Shift + Ctrl pressed is: ", holdedShift);
     }
@@ -48,7 +39,6 @@ function toggleCtrl(){
     switch(holded){
         case false:
             robot.keyToggle("control", "down");
-            original += 1;
         case true:
             robot.keyToggle("control", "up");
 
@@ -61,9 +51,7 @@ function toggleShift(){
     switch(holdedShift){
         case false:
             robot.keyToggle("control", "down");
-            original += 1;
             robot.keyToggle("shift", "down");
-            shift += 1;
         case true:
             robot.keyToggle("control", "up");
             robot.keyToggle("shift", "up");
