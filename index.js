@@ -49,7 +49,7 @@ function startInstantPatrol(){
 function startMailClaim(){
     moveAndClickInstant(actions.mailicon[0], actions.mailicon[1]);
     moveAndClick(actions.mailclaim[0], actions.mailclaim[1], 10, base/2)
-    click(10, 250);
+    click(10, base-500);
     back;
 };
 

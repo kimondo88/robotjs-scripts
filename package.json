@@ -6,11 +6,13 @@
   "license": "MIT",
   "private": false,
   "dependencies": {
-    "robotjs": "^0.6.0"
+    "robotjs": "^0.6.0",
+    "uiohook-napi": "^1.5.0"
   },
   "scripts": {
-    "start" : "node index.js",
-    "mouse" : "node mouse.js",
-    "event" : "node routineEvent.js"
+    "start": "node index.js",
+    "mouse": "node mouse.js",
+    "event": "node routineEvent.js",
+    "ctrl": "node holdctrl.js"
   }
 }
