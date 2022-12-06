@@ -2,32 +2,56 @@
 // Include the robotjs package
 var robot = require("robotjs");
 const napi = require('uiohook-napi');
-const UiohookKey = napi.UiohookKey;
-const uIOhook = napi.uIOhook;
+const {
+    UiohookKey,
+    uIOhook
+} = napi;
+
 
 // Timeout to wait if system is slow
 
-let exit = true;
+let holded = false;
+let holdedShift = false;
 
 uIOhook.on('keydown', (e) => {
     if (e.keycode === UiohookKey.End) {
         toggleShiftUp();
-        exit = false;
         console.log("Exiting, see ya");
         process.exit(0);
     }
+    if(e.keycode === UiohookKey.Ctrl) {
+        toggleCtrl();
+        console.log("Ctrl pressed is: ", holded);
+    }
+    if(e.keycode === UiohookKey.Shift) {
+        toggleShift();
+        console.log("Shift pressed is: ", holdedShift);
+    }
 })
-
-const base = 1500;
-
-setTimeout(toggleShift, base);
 
 //Can learn more about these
 //properties from the robotjs site
  
+function toggleCtrl(){
+    switch(holded){
+        case false:
+            robot.keyToggle("control", "down");
+        case true:
+            robot.keyToggle("control", "up");
+    }
+    return holded = !holded;
+}
+
 function toggleShift(){
-    robot.keyToggle("shift", "down");
-    robot.keyToggle("control", "down");
+    switch(holdedShift){
+        case false:
+            robot.keyToggle("control", "down");
+            robot.keyToggle("shift", "down");
+        case true:
+            robot.keyToggle("control", "up");
+            robot.keyToggle("shift", "up");
+    }
+    return holdedShift = !holdedShift;
 }
 
 function toggleShiftUp(){
