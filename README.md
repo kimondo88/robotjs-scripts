@@ -12,7 +12,8 @@ Set of scripts for desktop applications that automate stuff doing in computer.
     Only for event clicking in monster : run routineEvent.sh
 * Scripts for Orange Juice 100%
     
-    Functionality: hold ctrl or ctrl+shift for speed the game: run orangeJuice.sh
+    Functionality: press 1 for fater speed, press 2 for ultra speed, press 3 for reset speed 
+    to run the game script: run orangeJuice.sh
 
 
 ## What do need to be setup
