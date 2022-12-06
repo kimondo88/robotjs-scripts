@@ -1,6 +1,6 @@
 {
-  "name": "robotjs",
-  "version": "1.0.0",
+  "name": "robotjs-scripts",
+  "version": "1.0.1",
   "main": "index.js",
   "author": "Adam Kim Tarczewski",
   "license": "MIT",
