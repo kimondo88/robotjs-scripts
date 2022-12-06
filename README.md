@@ -21,6 +21,12 @@ IF you are not using it from desktop location, and the project directory is not 
 
 # How to run
 
+> run git bash
+
+when on desktop path
+
+> git clone https://github.com/kimondo88/robotjs-scripts.git
+
 ### Requirements:
  You need to have git bash and nodejs installed. OR bash + nodejs if you are on linux.
 
