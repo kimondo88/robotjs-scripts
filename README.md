@@ -27,6 +27,15 @@ when on desktop path
 
 > git clone https://github.com/kimondo88/robotjs-scripts.git
 
+go into created folder by doing
+
+> cd robotjs-scripts/
+
+run 
+
+> npm install
+
+
 ### Requirements:
  You need to have git bash and nodejs installed. OR bash + nodejs if you are on linux.
 
