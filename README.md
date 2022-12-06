@@ -21,6 +21,9 @@ IF you are not using it from desktop location, and the project directory is not 
 
 # How to run
 
+### Requirements:
+ You need to have git bash and nodejs installed. OR bash + nodejs if you are on linux.
+
 > run git bash
 
 when on desktop path
@@ -34,10 +37,6 @@ go into created folder by doing
 run 
 
 > npm install
-
-
-### Requirements:
- You need to have git bash and nodejs installed. OR bash + nodejs if you are on linux.
 
 ## When run on Windows
 
